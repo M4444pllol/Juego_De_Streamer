@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juego_De_Streamer", "Juego_De_Streamer.csproj", "{C51263F9-23AD-45D1-B51A-A59E9AA87748}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C51263F9-23AD-45D1-B51A-A59E9AA87748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C51263F9-23AD-45D1-B51A-A59E9AA87748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C51263F9-23AD-45D1-B51A-A59E9AA87748}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{C51263F9-23AD-45D1-B51A-A59E9AA87748}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{C51263F9-23AD-45D1-B51A-A59E9AA87748}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{C51263F9-23AD-45D1-B51A-A59E9AA87748}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
