@@ -12,13 +12,15 @@ public partial class Camera2d : Camera2D
     private bool _ratonEnR = false;
 
     // Velocidad del Fondo
-    private float _velocidadFondo = 188.0f;
+    [Export] public float _velocidadFondo = 222.0f;
+    [Export] public float _velocidadExtra =2.5f;
+    [Export] public float _limiteCamara =720.0f;
 
     public override void _Ready()
     {
         FondoDia.xFont = 0;
         Position = Vector2.Zero;
-
+            // Referencias a las areas con Hover para controlar "la camara"
         _cameraL = GetNode<Area2D>("Camera_L"); 
         _cameraR = GetNode<Area2D>("Camera_R");
 
@@ -36,28 +38,36 @@ public partial class Camera2d : Camera2D
         }
     }
 
-    float ratonSegundo = 0.0f;
+    float ratonSegundo, ratonPrimero, posicionCam = 0.0f;
     public override void _Process(double delta)
     {
-
 		//Movimiento en deltaTime del fondo
-        if (_ratonEnL)
+        if (_ratonEnL && FondoDia.xFont < _limiteCamara)
         {
             FondoDia.xFont += _velocidadFondo * (float)delta;
-            
+            ratonPrimero += 0.1f;
+                // ratonPrimero/ratonSegundo son contadores independientes que al llegar a 3 cambian la velocidad, mientras que FondoDia.xFont es simplemente la variable x de FondoDia
+            if (_ratonEnL && ratonPrimero>=3f)
+		    {
+                // Se le suma la velocidad extra cuando lleba 3 segundos
+                FondoDia.xFont += _velocidadFondo * (float)delta + _velocidadExtra;
+		    }
         }
-        
-		if (_ratonEnR)
+		else
+		{
+			ratonPrimero = 0f;
+		}
+            // Lo mismo que el de arriba
+		if (_ratonEnR && FondoDia.xFont > -_limiteCamara)
         {
             FondoDia.xFont -= _velocidadFondo * (float)delta;
-            ratonSegundo += 0.01f;
-			GD.Print("AAAA:",ratonSegundo);
+            ratonSegundo += 0.1f;
+
+            if (_ratonEnR && ratonSegundo>=3f)
+		    {
+                FondoDia.xFont -= _velocidadFondo * (float)delta + _velocidadExtra;
+		    }
         }
-		else if (_ratonEnR && ratonSegundo>=3f)
-		{
-			GD.Print("Eeeepa:",ratonSegundo);
-			
-		}
 		else
 		{
 			ratonSegundo = 0f;

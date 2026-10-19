@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://chfly3r3ea7hh" path="res://Assets/No Use/Base_Escalada.png" id="2_i6fol"]
 [ext_resource type="Script" uid="uid://djjahjx5hk2wb" path="res://Scripts/Objects/FondoDia.cs" id="3_7mly0"]
 [ext_resource type="Script" uid="uid://dkxm10h847wes" path="res://Scripts/Objects/Camera2d.cs" id="4_njytv"]
+[ext_resource type="Texture2D" uid="uid://dt8q7al3uwe4c" path="res://Assets/No Use/Base_Micro.png" id="5_njytv"]
+[ext_resource type="Texture2D" uid="uid://d1a0lvn5aloai" path="res://Assets/No Use/Base_Webcam_A.png" id="6_0oqau"]
+[ext_resource type="Script" uid="uid://difcm8jm22cuy" path="res://Scripts/Objects/Webcam.cs" id="7_wxrs6"]
+[ext_resource type="Texture2D" uid="uid://plkd1atar4s" path="res://Assets/No Use/Base_Webcam_B.png" id="7_xx56k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qbq8"]
 size = Vector2(1.0126586, 1.0077162)
@@ -14,20 +18,17 @@ size = Vector2(1.0126582, 1.0007715)
 [node name="Node2D" type="Node2D" unique_id=2109702969]
 script = ExtResource("1_lidns")
 
-[node name="Fondo_Dia" type="Sprite2D" parent="." unique_id=756513253]
-position = Vector2(288, 7)
-scale = Vector2(1.35625, 1.35625)
-texture = ExtResource("2_i6fol")
-script = ExtResource("3_7mly0")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=356039150 node_paths=PackedStringArray("FondoDia")]
-position = Vector2(-2, 4)
+position = Vector2(-141, -6)
 script = ExtResource("4_njytv")
 FondoDia = NodePath("../Fondo_Dia")
+_velocidadFondo = 566.965
+_velocidadExtra = 0.3
 
 [node name="Camera_R" type="Area2D" parent="Camera2D" unique_id=1896912432]
 position = Vector2(496.99982, 7.6293945e-06)
 scale = Vector2(157.99998, 648)
+collision_priority = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Camera_R" unique_id=809039229]
 position = Vector2(1.1920929e-06, -0.0007716138)
@@ -36,8 +37,54 @@ shape = SubResource("RectangleShape2D_6qbq8")
 [node name="Camera_L" type="Area2D" parent="Camera2D" unique_id=904497236]
 position = Vector2(-497, -1.5377998e-05)
 scale = Vector2(158, 648)
+collision_priority = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Camera_L" unique_id=801288497]
 position = Vector2(-0.006329298, 0.0003858204)
 scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_mb8qb")
+
+[node name="Fondo_Dia" type="Sprite2D" parent="." unique_id=756513253]
+position = Vector2(-8.999996, -6)
+scale = Vector2(1.35625, 1.35625)
+texture = ExtResource("2_i6fol")
+script = ExtResource("3_7mly0")
+
+[node name="Webcam" type="Sprite2D" parent="Fondo_Dia" unique_id=1519777984]
+position = Vector2(-69.308754, -107.649765)
+scale = Vector2(0.73732716, 0.73732716)
+texture = ExtResource("6_0oqau")
+script = ExtResource("7_wxrs6")
+TexturaA = ExtResource("6_0oqau")
+TexturaB = ExtResource("7_xx56k")
+
+[node name="BaseMicro" type="Sprite2D" parent="Fondo_Dia" unique_id=1967328934]
+position = Vector2(162.21198, 115.02304)
+scale = Vector2(0.73732716, 0.73732716)
+texture = ExtResource("5_njytv")
+
+[node name="MenuButton" type="MenuButton" parent="Fondo_Dia" unique_id=281180643]
+offset_left = -425.43774
+offset_top = -83.31797
+offset_right = -103.963104
+offset_bottom = 96.58987
+mouse_filter = 1
+
+[node name="Gameplay" type="Button" parent="Fondo_Dia" unique_id=1499665877]
+offset_left = -86.26729
+offset_top = -84.0553
+offset_right = 244.05528
+offset_bottom = 92.90323
+mouse_filter = 1
+
+[node name="Ventana_L" type="Button" parent="Fondo_Dia" unique_id=1476806374]
+offset_left = -904.70044
+offset_top = -176.95851
+offset_right = -513.17975
+offset_bottom = 45.71428
+
+[node name="Ventana_R" type="Button" parent="Fondo_Dia" unique_id=2064016789]
+offset_left = 369.4009
+offset_top = -159.26266
+offset_right = 772.7189
+offset_bottom = 76.68204
