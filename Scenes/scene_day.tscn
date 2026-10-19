@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://6d6uu72hoyu1"]
+
+[ext_resource type="Script" uid="uid://cmd612jjkl8v" path="res://Scripts/Managers/GameManager.cs" id="1_lidns"]
+[ext_resource type="Texture2D" uid="uid://chfly3r3ea7hh" path="res://Assets/No Use/Base_Escalada.png" id="2_i6fol"]
+
+[node name="Node2D" type="Node2D" unique_id=2109702969]
+script = ExtResource("1_lidns")
+
+[node name="Fondo Dia" type="Sprite2D" parent="." unique_id=756513253]
+position = Vector2(315.00003, 99)
+scale = Vector2(1.35625, 1.35625)
+texture = ExtResource("2_i6fol")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=356039150]
+position = Vector2(288, 97)
