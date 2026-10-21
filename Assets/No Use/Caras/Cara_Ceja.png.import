@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt8q7al3uwe4c"
-path="res://.godot/imported/Base_Micro.png-cb8e8e9312cc1efd697edcae1f6411a5.ctex"
+uid="uid://l38fal57f36b"
+path="res://.godot/imported/Cara_Ceja.png-d98036d1b1691ad2ac20d9384a0bbe77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/No Use/Base_Micro.png"
-dest_files=["res://.godot/imported/Base_Micro.png-cb8e8e9312cc1efd697edcae1f6411a5.ctex"]
+source_file="res://Assets/No Use/Caras/Cara_Ceja.png"
+dest_files=["res://.godot/imported/Cara_Ceja.png-d98036d1b1691ad2ac20d9384a0bbe77.ctex"]
 
 [params]
 

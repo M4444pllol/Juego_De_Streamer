@@ -3,11 +3,16 @@
 [ext_resource type="Script" uid="uid://cmd612jjkl8v" path="res://Scripts/Managers/GameManager.cs" id="1_lidns"]
 [ext_resource type="Texture2D" uid="uid://chfly3r3ea7hh" path="res://Assets/No Use/Base_Escalada.png" id="2_i6fol"]
 [ext_resource type="Script" uid="uid://djjahjx5hk2wb" path="res://Scripts/Objects/FondoDia.cs" id="3_7mly0"]
+[ext_resource type="Texture2D" uid="uid://3oo6i7ro0plt" path="res://Assets/No Use/Objetos/Radiador.png" id="4_mnqtb"]
 [ext_resource type="Script" uid="uid://dkxm10h847wes" path="res://Scripts/Objects/Camera2d.cs" id="4_njytv"]
-[ext_resource type="Texture2D" uid="uid://dt8q7al3uwe4c" path="res://Assets/No Use/Base_Micro.png" id="5_njytv"]
+[ext_resource type="Texture2D" uid="uid://dt8q7al3uwe4c" path="res://Assets/No Use/Objetos/Base_Micro.png" id="5_njytv"]
+[ext_resource type="Texture2D" uid="uid://cijb1ox6mpvrx" path="res://Assets/No Use/Caras/Marco_Cara.png" id="5_xx56k"]
 [ext_resource type="Texture2D" uid="uid://d1a0lvn5aloai" path="res://Assets/No Use/Base_Webcam_A.png" id="6_0oqau"]
 [ext_resource type="Script" uid="uid://difcm8jm22cuy" path="res://Scripts/Objects/Webcam.cs" id="7_wxrs6"]
 [ext_resource type="Texture2D" uid="uid://plkd1atar4s" path="res://Assets/No Use/Base_Webcam_B.png" id="7_xx56k"]
+[ext_resource type="Script" uid="uid://cn131qquc37po" path="res://Scripts/Managers/obs.cs" id="8_38f1d"]
+[ext_resource type="Texture2D" uid="uid://cbhjwbo4fo4ml" path="res://Assets/No Use/Objetos/PC.png" id="9_38f1d"]
+[ext_resource type="Texture2D" uid="uid://ut4sx31nrwoa" path="res://Assets/No Use/Objetos/Ventilador.png" id="9_n1nij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qbq8"]
 size = Vector2(1.0126586, 1.0077162)
@@ -18,12 +23,146 @@ size = Vector2(1.0126582, 1.0007715)
 [node name="Node2D" type="Node2D" unique_id=2109702969]
 script = ExtResource("1_lidns")
 
+[node name="Fondo_Dia" type="Sprite2D" parent="." unique_id=756513253]
+position = Vector2(-75.12505, -2.5312624)
+scale = Vector2(1.3563802, 1.3563802)
+texture = ExtResource("2_i6fol")
+script = ExtResource("3_7mly0")
+
+[node name="Webcam" type="Sprite2D" parent="Fondo_Dia" unique_id=1519777984]
+position = Vector2(-78.12913, -140.76709)
+scale = Vector2(0.73732716, 0.73732716)
+texture = ExtResource("6_0oqau")
+script = ExtResource("7_wxrs6")
+TexturaA = ExtResource("6_0oqau")
+TexturaB = ExtResource("7_xx56k")
+
+[node name="BaseMicro" type="Sprite2D" parent="Fondo_Dia" unique_id=1967328934]
+position = Vector2(162.21198, 115.02304)
+scale = Vector2(0.73732716, 0.73732716)
+texture = ExtResource("5_njytv")
+
+[node name="_OBS" type="Button" parent="Fondo_Dia" unique_id=920261726]
+offset_left = -490.86398
+offset_top = -119.932655
+offset_right = -103.963104
+offset_bottom = 96.58987
+mouse_filter = 1
+script = ExtResource("8_38f1d")
+
+[node name="_menuOBS" type="Control" parent="Fondo_Dia/_OBS" unique_id=385554107]
+anchors_preset = 0
+offset_right = 386.26575
+offset_bottom = 215.43039
+
+[node name="btn_Audio" type="Button" parent="Fondo_Dia/_OBS/_menuOBS" unique_id=1206054998]
+layout_mode = 0
+offset_left = 233.65373
+offset_top = 122.5361
+offset_right = 376.68146
+offset_bottom = 211.728
+
+[node name="btn_Entrada" type="Button" parent="Fondo_Dia/_OBS/_menuOBS" unique_id=1504188058]
+layout_mode = 0
+offset_left = 126.01428
+offset_top = 122.53611
+offset_right = 233.65369
+offset_bottom = 211.57645
+
+[node name="btn_Escenas" type="Button" parent="Fondo_Dia/_OBS/_menuOBS" unique_id=643776713]
+layout_mode = 0
+offset_left = 2.8924656
+offset_top = 122.5361
+offset_right = 123.8025
+offset_bottom = 212.31372
+
+[node name="btn_Rendimiento" type="Button" parent="Fondo_Dia/_OBS/_menuOBS" unique_id=458021959]
+layout_mode = 0
+offset_left = 234.39096
+offset_top = 11.947632
+offset_right = 376.68146
+offset_bottom = 121.06158
+
+[node name="btn_Camara" type="Button" parent="Fondo_Dia/_OBS/_menuOBS" unique_id=1485016857]
+layout_mode = 0
+offset_left = 2.1552067
+offset_top = 11.210396
+offset_right = 232.91647
+offset_bottom = 121.06159
+
+[node name="Gameplay" type="Button" parent="Fondo_Dia" unique_id=1499665877]
+offset_left = -86.26729
+offset_top = -120.651085
+offset_right = 295.45367
+offset_bottom = 92.90322
+mouse_filter = 1
+
+[node name="Ventana_L" type="Button" parent="Fondo_Dia" unique_id=1476806374]
+offset_left = -928.7483
+offset_top = -167.34894
+offset_right = -537.2276
+offset_bottom = 55.323853
+mouse_filter = 1
+
+[node name="Ventana_R" type="Button" parent="Fondo_Dia" unique_id=2064016789]
+offset_left = 369.4009
+offset_top = -159.26266
+offset_right = 772.7189
+offset_bottom = 76.68204
+mouse_filter = 1
+
+[node name="Puerta" type="Button" parent="Fondo_Dia" unique_id=1330146724]
+offset_left = 826.1926
+offset_top = -164.52011
+offset_right = 959.1019
+offset_bottom = 240.67352
+mouse_filter = 1
+
+[node name="Radiador" type="Button" parent="Fondo_Dia" unique_id=738769350]
+offset_left = -958.3411
+offset_top = 89.5997
+offset_right = -681.87
+offset_bottom = 239.26266
+mouse_filter = 1
+
+[node name="Radiador" type="Sprite2D" parent="Fondo_Dia/Radiador" unique_id=202840141]
+position = Vector2(137.17749, 77.7941)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("4_mnqtb")
+
+[node name="Pc" type="Button" parent="Fondo_Dia" unique_id=157485610]
+offset_left = 227.16711
+offset_top = 93.28595
+offset_right = 305.31628
+offset_bottom = 240.7372
+
+[node name="Pc" type="Sprite2D" parent="Fondo_Dia/Pc" unique_id=1258184121]
+position = Vector2(38.33734, 73.725624)
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("9_38f1d")
+
+[node name="Ventilador" type="Button" parent="Fondo_Dia" unique_id=16986442]
+offset_left = -681.609
+offset_top = -63.94013
+offset_right = -543.609
+offset_bottom = 240.04678
+mouse_filter = 1
+
+[node name="Ventilador" type="Sprite2D" parent="Fondo_Dia/Ventilador" unique_id=327045371]
+position = Vector2(70.944824, 155.89896)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("9_n1nij")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=356039150 node_paths=PackedStringArray("FondoDia")]
-position = Vector2(-141, -6)
+position = Vector2(-160, 758)
 script = ExtResource("4_njytv")
 FondoDia = NodePath("../Fondo_Dia")
 _velocidadFondo = 566.965
 _velocidadExtra = 0.3
+
+[node name="MarcoCara" type="Sprite2D" parent="Camera2D" unique_id=1543751830]
+position = Vector2(833.00006, -276)
+texture = ExtResource("5_xx56k")
 
 [node name="Camera_R" type="Area2D" parent="Camera2D" unique_id=1896912432]
 position = Vector2(496.99982, 7.6293945e-06)
@@ -43,48 +182,3 @@ collision_priority = 3.0
 position = Vector2(-0.006329298, 0.0003858204)
 scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_mb8qb")
-
-[node name="Fondo_Dia" type="Sprite2D" parent="." unique_id=756513253]
-position = Vector2(-8.999996, -6)
-scale = Vector2(1.35625, 1.35625)
-texture = ExtResource("2_i6fol")
-script = ExtResource("3_7mly0")
-
-[node name="Webcam" type="Sprite2D" parent="Fondo_Dia" unique_id=1519777984]
-position = Vector2(-69.308754, -107.649765)
-scale = Vector2(0.73732716, 0.73732716)
-texture = ExtResource("6_0oqau")
-script = ExtResource("7_wxrs6")
-TexturaA = ExtResource("6_0oqau")
-TexturaB = ExtResource("7_xx56k")
-
-[node name="BaseMicro" type="Sprite2D" parent="Fondo_Dia" unique_id=1967328934]
-position = Vector2(162.21198, 115.02304)
-scale = Vector2(0.73732716, 0.73732716)
-texture = ExtResource("5_njytv")
-
-[node name="MenuButton" type="MenuButton" parent="Fondo_Dia" unique_id=281180643]
-offset_left = -425.43774
-offset_top = -83.31797
-offset_right = -103.963104
-offset_bottom = 96.58987
-mouse_filter = 1
-
-[node name="Gameplay" type="Button" parent="Fondo_Dia" unique_id=1499665877]
-offset_left = -86.26729
-offset_top = -84.0553
-offset_right = 244.05528
-offset_bottom = 92.90323
-mouse_filter = 1
-
-[node name="Ventana_L" type="Button" parent="Fondo_Dia" unique_id=1476806374]
-offset_left = -904.70044
-offset_top = -176.95851
-offset_right = -513.17975
-offset_bottom = 45.71428
-
-[node name="Ventana_R" type="Button" parent="Fondo_Dia" unique_id=2064016789]
-offset_left = 369.4009
-offset_top = -159.26266
-offset_right = 772.7189
-offset_bottom = 76.68204
