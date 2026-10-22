@@ -11,8 +11,10 @@
 [ext_resource type="Script" uid="uid://difcm8jm22cuy" path="res://Scripts/Objects/Webcam.cs" id="7_wxrs6"]
 [ext_resource type="Texture2D" uid="uid://plkd1atar4s" path="res://Assets/No Use/Base_Webcam_B.png" id="7_xx56k"]
 [ext_resource type="Script" uid="uid://cn131qquc37po" path="res://Scripts/Managers/obs.cs" id="8_38f1d"]
+[ext_resource type="Script" uid="uid://c44dh4313tll0" path="res://Scripts/Clicker.cs" id="9_22jpc"]
 [ext_resource type="Texture2D" uid="uid://cbhjwbo4fo4ml" path="res://Assets/No Use/Objetos/PC.png" id="9_38f1d"]
 [ext_resource type="Texture2D" uid="uid://ut4sx31nrwoa" path="res://Assets/No Use/Objetos/Ventilador.png" id="9_n1nij"]
+[ext_resource type="Script" uid="uid://b4iuu7l6vso5i" path="res://Scripts/RelojUI.cs" id="12_7gns4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qbq8"]
 size = Vector2(1.0126586, 1.0077162)
@@ -42,60 +44,71 @@ position = Vector2(162.21198, 115.02304)
 scale = Vector2(0.73732716, 0.73732716)
 texture = ExtResource("5_njytv")
 
-[node name="_OBS" type="Button" parent="Fondo_Dia" unique_id=920261726]
-offset_left = -490.86398
+[node name="_OBS" type="Button" parent="Fondo_Dia" unique_id=920261726 node_paths=PackedStringArray("_menuOBS", "BtnCamara", "BtnRendimiento", "BtnEscenas", "BtnEntrada", "BtnAudio")]
+offset_left = -490.86395
 offset_top = -119.932655
-offset_right = -103.963104
+offset_right = -103.96307
 offset_bottom = 96.58987
 mouse_filter = 1
 script = ExtResource("8_38f1d")
+_menuOBS = NodePath("../_menuOBS")
+BtnCamara = NodePath("../_menuOBS/btn_Camara")
+BtnRendimiento = NodePath("../_menuOBS/btn_Rendimiento")
+BtnEscenas = NodePath("../_menuOBS/btn_Escenas")
+BtnEntrada = NodePath("../_menuOBS/btn_Entrada")
+BtnAudio = NodePath("../_menuOBS/btn_Audio")
 
-[node name="_menuOBS" type="Control" parent="Fondo_Dia/_OBS" unique_id=385554107]
+[node name="_menuOBS" type="Control" parent="Fondo_Dia" unique_id=385554107]
+visible = false
+layout_mode = 3
 anchors_preset = 0
-offset_right = 386.26575
-offset_bottom = 215.43039
+offset_left = -490.86395
+offset_top = -119.932655
+offset_right = -104.598206
+offset_bottom = 95.497734
 
-[node name="btn_Audio" type="Button" parent="Fondo_Dia/_OBS/_menuOBS" unique_id=1206054998]
+[node name="btn_Audio" type="Button" parent="Fondo_Dia/_menuOBS" unique_id=1206054998]
 layout_mode = 0
 offset_left = 233.65373
 offset_top = 122.5361
 offset_right = 376.68146
 offset_bottom = 211.728
 
-[node name="btn_Entrada" type="Button" parent="Fondo_Dia/_OBS/_menuOBS" unique_id=1504188058]
+[node name="btn_Entrada" type="Button" parent="Fondo_Dia/_menuOBS" unique_id=1504188058]
 layout_mode = 0
 offset_left = 126.01428
 offset_top = 122.53611
 offset_right = 233.65369
 offset_bottom = 211.57645
 
-[node name="btn_Escenas" type="Button" parent="Fondo_Dia/_OBS/_menuOBS" unique_id=643776713]
+[node name="btn_Escenas" type="Button" parent="Fondo_Dia/_menuOBS" unique_id=643776713]
 layout_mode = 0
 offset_left = 2.8924656
 offset_top = 122.5361
 offset_right = 123.8025
 offset_bottom = 212.31372
 
-[node name="btn_Rendimiento" type="Button" parent="Fondo_Dia/_OBS/_menuOBS" unique_id=458021959]
+[node name="btn_Rendimiento" type="Button" parent="Fondo_Dia/_menuOBS" unique_id=458021959]
 layout_mode = 0
 offset_left = 234.39096
 offset_top = 11.947632
 offset_right = 376.68146
 offset_bottom = 121.06158
 
-[node name="btn_Camara" type="Button" parent="Fondo_Dia/_OBS/_menuOBS" unique_id=1485016857]
+[node name="btn_Camara" type="Button" parent="Fondo_Dia/_menuOBS" unique_id=1485016857]
 layout_mode = 0
 offset_left = 2.1552067
 offset_top = 11.210396
 offset_right = 232.91647
 offset_bottom = 121.06159
 
-[node name="Gameplay" type="Button" parent="Fondo_Dia" unique_id=1499665877]
+[node name="Clicker" type="Button" parent="Fondo_Dia" unique_id=1499665877]
 offset_left = -86.26729
 offset_top = -120.651085
 offset_right = 295.45367
 offset_bottom = 92.90322
 mouse_filter = 1
+script = ExtResource("9_22jpc")
 
 [node name="Ventana_L" type="Button" parent="Fondo_Dia" unique_id=1476806374]
 offset_left = -928.7483
@@ -152,6 +165,40 @@ mouse_filter = 1
 position = Vector2(70.944824, 155.89896)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("9_n1nij")
+
+[node name="RelojUI" type="Node2D" parent="Fondo_Dia" unique_id=625652162 node_paths=PackedStringArray("LabelArriba", "LabelAbajo", "_gameManager")]
+script = ExtResource("12_7gns4")
+LabelArriba = NodePath("Contenedor/Label_Arriba")
+LabelAbajo = NodePath("Contenedor/Label_Abajo")
+animacionRelojSpeed = 2.0
+_gameManager = NodePath("../..")
+
+[node name="Contenedor" type="Control" parent="Fondo_Dia/RelojUI" unique_id=2025710381]
+custom_minimum_size = Vector2(126, 56)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -159.15518
+offset_top = 98.44678
+offset_right = -33.08435
+offset_bottom = 156.42316
+
+[node name="Label_Arriba" type="Label" parent="Fondo_Dia/RelojUI/Contenedor" unique_id=1732607355]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.05882353, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "00:00"
+
+[node name="Label_Abajo" type="Label" parent="Fondo_Dia/RelojUI/Contenedor" unique_id=321299242]
+layout_mode = 0
+offset_left = 1.4745127
+offset_top = -0.73725635
+offset_right = 50.13342
+offset_bottom = 27.27849
+theme_override_colors/font_color = Color(0.05882353, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "00:00"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=356039150 node_paths=PackedStringArray("FondoDia")]
 position = Vector2(-160, 758)

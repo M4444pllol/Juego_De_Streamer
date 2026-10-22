@@ -3,7 +3,6 @@ using System;
 
 public partial class FondoDia : Sprite2D
 {
-
 	//Velocidad de movimieto del Fondo
 	public float xFont = 0.0f;
 	// Called when the node enters the scene tree for the first time.

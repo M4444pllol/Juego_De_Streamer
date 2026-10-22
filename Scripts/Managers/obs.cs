@@ -1,38 +1,40 @@
 using Godot;
 
-public partial class ControladorOBS : Node
+// Al poner : Button, el script sabe que es un botón
+public partial class obs : Button 
 {
-    private Button _OBS;
-    private Control _menuOBS;
+    [Export] public Control _menuOBS;
+
+    [Export] public Button BtnCamara;
+    [Export] public Button BtnRendimiento;
+    [Export] public Button BtnEscenas;
+    [Export] public Button BtnEntrada;
+    [Export] public Button BtnAudio;
 
     public override void _Ready()
     {
-        _OBS = GetNode<Button>("_OBS");
-        _menuOBS = GetNode<Control>("_menuOBS");
+        //if (_menuOBS != null) _menuOBS.Visible = false;
+        this.Pressed += MostrarMenu; //This = referirme al propio objeto del codigo
 
-        _menuOBS.Visible = false; // Ojo que empieza oculto
+        if (BtnCamara != null) BtnCamara.Pressed += () => SeleccionarOpcion("Cámara");
+        if (BtnRendimiento != null) BtnRendimiento.Pressed += () => SeleccionarOpcion("Rendimiento");
+        if (BtnEscenas != null) BtnEscenas.Pressed += () => SeleccionarOpcion("Escenas");
+        if (BtnEntrada != null) BtnEntrada.Pressed += () => SeleccionarOpcion("Entrada");
+        if (BtnAudio != null) BtnAudio.Pressed += () => SeleccionarOpcion("Audio");
 
-        _OBS.Pressed += MostrarMenu;
-
-        // Conexion de los botones
-        GetNode<Button>("Menu_OBS/ColorRect/Btn_Camara").Pressed += () => SeleccionarOpcion("Cámara");
-        GetNode<Button>("Menu_OBS/ColorRect/Btn_Rendimiento").Pressed += () => SeleccionarOpcion("Rendimiento");
-        GetNode<Button>("Menu_OBS/ColorRect/Btn_Escenas").Pressed += () => SeleccionarOpcion("Escenas");
-        GetNode<Button>("Menu_OBS/ColorRect/Btn_Entrada").Pressed += () => SeleccionarOpcion("Entrada");
-        GetNode<Button>("Menu_OBS/ColorRect/Btn_Audio").Pressed += () => SeleccionarOpcion("Audio");
     }
 
     private void MostrarMenu()
     {
-        _menuOBS.Visible = true; 
-        _OBS.Visible = false; 
+        if (_menuOBS != null) _menuOBS.Visible = true; 
+        this.Visible = false; 
     }
 
     private void SeleccionarOpcion(string nombreOpcion)
     {
         GD.Print("Has seleccionado: " + nombreOpcion);
         
-        _menuOBS.Visible = false; 
-        _OBS.Visible = true; 
+        if (_menuOBS != null) _menuOBS.Visible = false; 
+        this.Visible = true; 
     }
 }
